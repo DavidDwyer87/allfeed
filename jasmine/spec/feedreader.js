@@ -67,18 +67,22 @@ $(function() {
     describe('The menu',function(){
         var hidden = 'matrix(1, 0, 0, 1, -192, 0)';
         var menu = $('div.slide-menu');
+        var menuIcon = $('.menu-icon-link');
+
         
-        it('hidden menu',function(){
-            expect(menu.css('transform')).toBe('matrix(1, 0, 0, 1, -192, 0)');
+        it('hidden by default',function(){
+            expect(menu.css('transform')).toBe(hidden);
         });
 
-        it('does the menu display when clicked',function(done){
-            $('.menu-icon-link').click(function(done){
-                done();
-            });
-            
-            expect(menu.css('transform')).toBe('matrix(1, 0, 0, 1, 0, 0)');
-        },500);
+        it('show when clicked',function(){
+            menuIcon.click();
+            expect($('body').hasClass('menu-hidden')).toBe(false);   
+        });
+
+        it('hide when clicked',function(){
+            menuIcon.click();
+            expect($('body').hasClass('menu-hidden')).toBe(true);            
+        });
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
