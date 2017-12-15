@@ -65,14 +65,20 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
     describe('The menu',function(){
+        var hidden = 'matrix(1, 0, 0, 1, -192, 0)';
+        var menu = $('div.slide-menu');
         
         it('hidden menu',function(){
-
+            expect(menu.css('transform')).toBe('matrix(1, 0, 0, 1, -192, 0)');
         });
 
-        it('does the menu display when clicked',function(){
-
-        });
+        it('does the menu display when clicked',function(done){
+            $('.menu-icon-link').click(function(done){
+                done();
+            });
+            
+            expect(menu.css('transform')).toBe('matrix(1, 0, 0, 1, 0, 0)');
+        },500);
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
