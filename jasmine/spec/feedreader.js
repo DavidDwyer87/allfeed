@@ -31,7 +31,10 @@ $(function() {
          * and that the URL is not empty.
          */
          it('urls ok', function(){
-            
+             for(var i=0; i<allFeeds.length; i++)
+             {
+                expect(allFeeds[i].url).not.toBe('');
+             }
          });
 
 
@@ -40,7 +43,10 @@ $(function() {
          * and that the name is not empty.
          */
          it('name ok',function(){
-
+             for(var i=0; i<allFeeds.length; i++)
+             {
+                expect(allFeeds[i].name).not.toBe('');
+             }
          });
     });
 
@@ -60,7 +66,7 @@ $(function() {
           */
     describe('The menu',function(){
         
-        it('hidden/show menu',function(){
+        it('hidden menu',function(){
 
         });
 
