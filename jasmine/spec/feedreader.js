@@ -112,6 +112,22 @@ $(function() {
          */
 
     describe('New Feed Selection',function(){
+        var initContent = '';
+        var otherContent = '';
 
+        beforeEach(function(done){
+            loadFeed(1,done);
+            initContent = $('.feed').html();            
+        });
+
+        beforeEach(function(done){
+            loadFeed(2,done); 
+            otherContent = $('.feed').html();
+        });
+
+        it('content change',function(done){
+            expect(otherContent).not.toBe(initContent);
+            done();
+        });
     });
 }());
