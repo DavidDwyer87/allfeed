@@ -76,7 +76,7 @@ $(function() {
         });
 
         it('feed not empty',function(done){          
-            expect($('.entry-link').length).toBeGreaterThan(1);
+            expect($('.feed .entry').length).toBeGreaterThan(0);
             done();
         });
 
