@@ -107,4 +107,4 @@ Review the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/pr
 *change for loop within test case to forEach.
 *Use hasClass to check if the menu is visible on initial load.
 *Update Initial Entries test case to acurate test for entry element in the feed container.
-*update content change test async implementation was incorrect.
+*Update content change test async implementation was incorrect.

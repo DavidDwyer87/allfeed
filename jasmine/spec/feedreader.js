@@ -31,6 +31,7 @@ $(function() {
          it('urls ok', function(){
              allFeeds.forEach(function(item){
                 expect(item.url).toBeDefined();
+                expect(item.url).not.toBe('');
              });             
          });
 
@@ -41,6 +42,7 @@ $(function() {
 
             allFeeds.forEach(function(item){
                 expect(item.name).toBeDefined();
+                expect(item.name).not.toBe('');
             });             
          });
     });
@@ -73,7 +75,7 @@ $(function() {
             loadFeed(0,done);        
         });
 
-        it(' feed not empty',function(done){          
+        it('feed not empty',function(done){          
             expect($('.entry-link').length).toBeGreaterThan(1);
             done();
         });
@@ -90,12 +92,15 @@ $(function() {
 
             loadFeed(1,function(){
                 initContent = $('.feed').html();
+                done();
+
+                loadFeed(2,function(){
+                    otherContent = $('.feed').html();
+                    done();
+                });
             });
             
-            loadFeed(2,function(){
-                otherContent = $('.feed').html();
-                done();
-            });
+           
         });
 
         it('content change',function(done){
