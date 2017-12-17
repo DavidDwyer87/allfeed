@@ -29,9 +29,9 @@ $(function() {
       /* Check if url is defined in the allfeeds array
          */
          it('urls ok', function(){
-             allFeeds.forEach(function(item){
-                expect(item.url).toBeDefined();
-                expect(item.url).not.toBe('');
+             allFeeds.forEach(function(feed){
+                expect(feed.url).toBeDefined();
+                expect(feed.url).not.toBe('');
              });             
          });
 
@@ -40,9 +40,9 @@ $(function() {
          */
          it('name ok',function(){
 
-            allFeeds.forEach(function(item){
-                expect(item.name).toBeDefined();
-                expect(item.name).not.toBe('');
+            allFeeds.forEach(function(feed){
+                expect(feed.name).toBeDefined();
+                expect(feed.name).not.toBe('');
             });             
          });
     });
@@ -60,13 +60,11 @@ $(function() {
 
         it('show when clicked',function(){
             menuIcon.click();
-            expect($('body').hasClass('menu-hidden')).toBe(false);   
-        });
+            expect($('body').hasClass('menu-hidden')).toBe(false);  
 
-        it('hide when clicked',function(){
-            menuIcon.click();
-            expect($('body').hasClass('menu-hidden')).toBe(true);            
-        });
+             menuIcon.click();
+            expect($('body').hasClass('menu-hidden')).toBe(true); 
+        });        
     });
 
     /*Test case that check if at lease one entry is in the feed container */
@@ -79,28 +77,22 @@ $(function() {
             expect($('.feed .entry').length).toBeGreaterThan(0);
             done();
         });
-
     });
 
     /* Test case the check if the content changes when user selects a differnt feed*/
-
     describe('New Feed Selection',function(){
         var initContent = '';
         var otherContent = '';
 
         beforeEach(function(done){
-
             loadFeed(1,function(){
-                initContent = $('.feed').html();
-                done();
+                initContent = $('.feed').html();               
 
                 loadFeed(2,function(){
                     otherContent = $('.feed').html();
                     done();
                 });
-            });
-            
-           
+            });         
         });
 
         it('content change',function(done){
